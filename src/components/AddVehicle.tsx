@@ -32,7 +32,7 @@ function AddVehicle() {
     }
 
     try {
-      const response = await fetch('http://localhost:3000/api/vehicles', {
+      const response = await fetch('https://vehicle-parking-management.onrender.com/api/vehicles', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -87,7 +87,7 @@ function AddVehicle() {
     if (!newVehicle?._id) return
 
     try {
-      const response = await fetch(`http://localhost:3000/api/vehicles/${newVehicle._id}/cancel`, {
+      const response = await fetch(`https://vehicle-parking-management.onrender.com/api/vehicles/${newVehicle._id}/cancel`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
