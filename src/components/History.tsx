@@ -56,7 +56,7 @@ function History() {
 
   const fetchHistory = async () => {
     try {
-      let url = 'http://localhost:3000/api/vehicles?status=history'
+      let url = 'https://vehicle-parking-management.onrender.com/api/vehicles?status=history'
 
       if (searchDate) {
         url += `&date=${searchDate}`
