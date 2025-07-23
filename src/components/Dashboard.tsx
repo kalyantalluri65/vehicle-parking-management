@@ -65,9 +65,9 @@ function Dashboard() {
   const fetchData = async () => {
     try {
       const [vehiclesRes, slotsRes, historyRes] = await Promise.all([
-        fetch('http://localhost:3000/api/vehicles?status=active'),
-        fetch('http://localhost:3000/api/slots'),
-        fetch('http://localhost:3000/api/vehicles?status=history'),
+        fetch('https://vehicle-parking-management.onrender.com/api/vehicles?status=active'),
+        fetch('https://vehicle-parking-management.onrender.com/api/slots'),
+        fetch('https://vehicle-parking-management.onrender.com/api/vehicles?status=history'),
       ])
       const vehicles = await vehiclesRes.json()
       const slots = await slotsRes.json()
@@ -87,7 +87,7 @@ function Dashboard() {
         setCheckoutVehicle(vehicle)
       }
 
-      const response = await fetch(`http://localhost:3000/api/vehicles/${id}/fare`)
+      const response = await fetch(`https://vehicle-parking-management.onrender.com/api/vehicles/${id}/fare`)
       const { fare } = await response.json()
       setCalculatedFare(fare)
       setParkingFare(fare.toString())
@@ -101,7 +101,7 @@ function Dashboard() {
     if (!checkoutId) return
 
     try {
-      const response = await fetch(`http://localhost:3000/api/vehicles/${checkoutId}/checkout`, {
+      const response = await fetch(`https://vehicle-parking-management.onrender.com/api/vehicles/${checkoutId}/checkout`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -128,7 +128,7 @@ function Dashboard() {
       const vehicle = activeVehicles.find((v) => v._id === vehicleId)
       if (!vehicle) return
 
-      const response = await fetch(`http://localhost:3000/api/vehicles/${vehicleId}/cancel`, {
+      const response = await fetch(`https://vehicle-parking-management.onrender.com/api/vehicles/${vehicleId}/cancel`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
